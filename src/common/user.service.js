@@ -9,12 +9,12 @@
         var service = this;
         
 
-        service.user = {
+ /*       service.user = {
             "first_name":"",
             "last_name": "",
             "email":"",
             "preference": ""
-        }
+        }*/
         service.SetUser = function (user) {
 
             service.user = user;
