@@ -1,28 +1,33 @@
 <div class="container">
 <legend>Your personnal info</legend>
    <span>
-   First Name mandatory: {{ reg.user.first_name }}
+   First Name : {{ myinfoCtrl.currentUser.first_name }}
     </span>
     <br>
 
     
    <span>
-    Last Name : {{ reg.user.last_name }}
+    Last Name : {{ myinfoCtrl.currentUser.last_name }}
     </span>
     <br>
 
     
    <span>
-   Email address: {{ reg.user.email }}
+   Email address: {{ myinfoCtrl.currentUser.email }}
     </span>
     <br>
 
    <span>
-    Phone number:  {{ reg.user.phone }}
+    Phone number:  {{ myinfoCtrl.currentUser.phone }}
     </span>
     <br>
 
-    Your prefered menu is {{ reg.user.preference }}
+    Your prefered menu is {{ myinfoCtrl.currentUser.preference }}
 
 <br>
+<div class="container">
+  <menu-item menu-item="myinfoCtrl.currentUser.favorite">
+  </menu-item>
+</div>
+
 </div>

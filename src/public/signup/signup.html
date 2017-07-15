@@ -1,14 +1,14 @@
+<div class="container">
+    <legend>Registration Form 1</legend>
+    <form name='regForm' novalidate>
 
-<legend>Registration Form 1</legend>
-<form name='regForm' novalidate>
-
-<input type="text" name="first_name" placeholder="Enter your first name"
+    <input type="text" name="first_name" placeholder="Enter your first name"
     ng-model="reg.user.first_name"
     required>
     {{ reg.user.first_name }}
     <span
     ng-if="(regForm.first_name.$error.required) && regForm.first_name.$touched">
-   First Name mandatory
+    First Name mandatory
     </span>
 
     <br>
@@ -25,7 +25,7 @@
 
     <br>
 
-<input type="email" name="email" placeholder="Email"
+    <input type="email" name="email" placeholder="Email"
     ng-model="reg.user.email"
     required>
     {{ reg.user.email }}
@@ -34,7 +34,7 @@
     </span>
     <br>
 
-<input type="text" name="phone" placeholder="Phone ###-###-####"
+    <input type="text" name="phone" placeholder="Phone ###-###-####"
     ng-model="reg.user.phone"
     pattern="(\d{3})-(\d{3})-(\d{4})">
     <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
@@ -42,17 +42,22 @@
     </span>
     <br>
 
-<input type="text" name="preference" placeholder="Enter your favorite menu"
+    <input type="text" name="preference" placeholder="Enter your favorite menu"
     ng-model="reg.user.preference">
-    Your prefered menu is {{ reg.user.preference }}
+    <span ng-if="reg.user.ismenu && reg.user.saved">
+    Your favorite menu is {{ reg.user.preference }}
+    </span>
+    <span ng-if="!reg.user.ismenu && regForm.preference.$touched" ng-model="reg.user.ismenu" >
+     No such menu exists {{ reg.user.preference }}
+    </span>
+    <br>
 
-<br>
-
-<button
+    <button
     ng-disabled="regForm.$invalid"
     ng-click="reg.submit()">Submit</button>
 
-    <div style="margin-top: 10px;">
-    Form valid? {{ regForm.$valid }}
-    </div>
-</form>
+    <span ng-if="reg.user.saved" ng-model="reg.user.saved" >
+    Your information has been saved !
+    </span>
+    </form>
+</div>

@@ -21,12 +21,23 @@ function routeConfig ($stateProvider) {
     })
     .state('public.signup', {
       url: '/signup',
-      templateUrl: 'src/public/signup/signup.html'
+      templateUrl: 'src/public/signup/signup.html',
+      controller: 'UserSignUpController',
+      controllerAs: 'reg'
     })    
     .state('public.myinfo', {
       url: '/myinfo',
-      templateUrl: 'src/public/myinfo/myinfo.html'
-    }).state('public.menu', {
+      templateUrl: 'src/public/myinfo/myinfo.html',
+      controller: 'MyInfoController',
+      controllerAs: 'myinfoCtrl',
+      resolve: {
+        currentUser: ['UserService', function (UserService) {
+          console.log("currentUser: ")
+          return UserService.getCurrentUser();
+        }]
+      }
+    })
+    .state('public.menu', {
       url: '/menu',
       templateUrl: 'src/public/menu/menu.html',
       controller: 'MenuController',
